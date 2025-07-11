@@ -48,29 +48,29 @@ const Index = () => {
   const projects = [
     {
       title: "Casino Analytics Dashboard",
-      description: "Interactive charts & trend visualizations for transaction data",
-      technologies: ["Angular", "Chart.js"],
+      description: "A comprehensive analytics platform designed for casino operations management. Features real-time data visualization with interactive charts for transaction monitoring, player behavior analysis, and revenue tracking. The dashboard provides operators with insights into game performance, peak hours analysis, and detailed financial reports with customizable date ranges.",
+      technologies: ["Angular", "Chart.js", "TypeScript", "RxJS", "Angular Material", "SCSS"],
       icon: <Palette className="w-6 h-6" />,
       gradient: "from-purple-400 to-pink-400"
     },
     {
       title: "NG-MART E-Commerce Platform",
-      description: "Product listing, filtering, cart UI with lazy loading and optimization",
-      technologies: ["Angular", "TypeScript", "RxJS"],
+      description: "A full-featured e-commerce application built with modern Angular architecture. Includes advanced product filtering, search functionality, shopping cart management, and user authentication. Features lazy loading for optimal performance, responsive design for all devices, and integrated payment gateway with order tracking capabilities.",
+      technologies: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Node.js", "MongoDB"],
       icon: <Code className="w-6 h-6" />,
       gradient: "from-blue-400 to-cyan-400"
     },
     {
       title: "Chatbot Interface",
-      description: "Conversational UI with API & third-party integration (Slack, Google login)",
-      technologies: ["React", "Node.js", "REST APIs"],
+      description: "An intelligent conversational UI designed for customer support automation. Features natural language processing, multi-platform integration with Slack and Google services, real-time messaging, and automated response generation. Includes user session management, conversation history, and seamless handoff to human agents when needed.",
+      technologies: ["React", "Node.js", "REST APIs", "Socket.io", "Tailwind CSS", "Express.js"],
       icon: <MessageCircle className="w-6 h-6" />,
       gradient: "from-green-400 to-emerald-400"
     },
     {
       title: "Hotel Offers UI (EaseMyTrip)",
-      description: "Built using Swiper and JSON-based dynamic rendering",
-      technologies: ["Angular", "Swiper", "TypeScript"],
+      description: "A dynamic hotel booking interface featuring interactive offer displays and promotional content. Built with Swiper for smooth carousel navigation, JSON-based content management for easy updates, and responsive design optimized for mobile booking. Includes real-time pricing updates, availability checking, and integrated booking flow with payment processing.",
+      technologies: ["Angular", "Swiper", "TypeScript", "SCSS", "RxJS", "REST APIs"],
       icon: <Target className="w-6 h-6" />,
       gradient: "from-orange-400 to-red-400"
     }
@@ -284,18 +284,18 @@ const Index = () => {
                     <div className={`p-3 bg-gradient-to-br ${project.gradient} rounded-xl mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       {project.icon}
                     </div>
-                    <CardTitle className="text-xl text-gray-900 group-hover:text-white transition-colors duration-300">
+                    <CardTitle className="text-xl text-gray-900 group-hover:text-indigo-700 transition-colors duration-300">
                       {project.title}
                     </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="relative z-10">
-                  <p className="text-gray-600 mb-4 group-hover:text-gray-100 transition-colors duration-300">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="border-slate-300 text-slate-600 hover:bg-white/20 hover:text-white hover:border-white/30 transition-all duration-300">
+                      <Badge key={idx} variant="outline" className="border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-400 transition-all duration-300">
                         {tech}
                       </Badge>
                     ))}
