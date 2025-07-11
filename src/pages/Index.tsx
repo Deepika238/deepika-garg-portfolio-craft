@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Download, Mail, Phone, Linkedin, MessageCircle, ExternalLink, Github, Calendar, MapPin, Code, Palette, Users, Target, Lightbulb, Zap, ArrowRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +13,7 @@ const Index = () => {
   const workExperience = [
     {
       title: "Front-End Developer",
-      company: "EaseMyTrip",
+      company: "EaseMyTrip", 
       period: "June 2025 – Present",
       description: "Building scalable hotel and travel modules using Angular",
       highlights: ["Integrated Swiper carousels", "REST APIs", "Dynamic hotel offer UIs"],
@@ -23,7 +22,7 @@ const Index = () => {
     {
       title: "Software Engineer",
       company: "Clavax Technologies",
-      period: "Sept 2024 – Present",
+      period: "Sept 2024 – Present", 
       description: "Designed data dashboards for casino operations",
       highlights: ["Added pie charts", "Variance tables", "Collapsible lists"],
       technologies: ["Angular", "GitLab", "Microsoft Azure"]
@@ -77,12 +76,35 @@ const Index = () => {
     }
   ];
 
-  const skills = {
-    "Frontend": ["Angular", "React", "TypeScript", "JavaScript"],
-    "UI/Styling": ["Tailwind CSS", "Bootstrap 5", "Angular Material", "HTML5", "CSS3"],
-    "Tools": ["GitHub", "GitLab", "JIRA", "AWS"],
-    "Other": ["Next.js", "RxJS", "REST APIs"]
-  };
+  const skillCategories = [
+    {
+      category: "Frontend Frameworks",
+      skills: [
+        { name: "Angular", level: 90, color: "from-red-500 to-red-600", icon: "⚡" },
+        { name: "React", level: 85, color: "from-blue-500 to-blue-600", icon: "⚛️" },
+        { name: "TypeScript", level: 88, color: "from-blue-600 to-blue-700", icon: "📘" },
+        { name: "JavaScript", level: 92, color: "from-yellow-500 to-yellow-600", icon: "🟨" }
+      ]
+    },
+    {
+      category: "UI & Styling",
+      skills: [
+        { name: "Tailwind CSS", level: 90, color: "from-cyan-500 to-cyan-600", icon: "🎨" },
+        { name: "Bootstrap 5", level: 85, color: "from-purple-500 to-purple-600", icon: "🅱️" },
+        { name: "Angular Material", level: 80, color: "from-indigo-500 to-indigo-600", icon: "🎯" },
+        { name: "CSS3", level: 95, color: "from-blue-400 to-blue-500", icon: "🎪" }
+      ]
+    },
+    {
+      category: "Tools & Technologies",
+      skills: [
+        { name: "GitHub", level: 88, color: "from-gray-700 to-gray-800", icon: "🐙" },
+        { name: "GitLab", level: 80, color: "from-orange-500 to-orange-600", icon: "🦊" },
+        { name: "AWS", level: 75, color: "from-orange-400 to-orange-500", icon: "☁️" },
+        { name: "RxJS", level: 85, color: "from-pink-500 to-pink-600", icon: "🔄" }
+      ]
+    }
+  ];
 
   const strengths = [
     { name: "Hard-working", icon: <Zap className="w-5 h-5" />, color: "text-yellow-500" },
@@ -285,29 +307,87 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Enhanced Skills Section */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Skills & Tech Stack</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(skills).map(([category, skillList], index) => (
-              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 bg-white/80 backdrop-blur-sm group">
-                <CardHeader>
-                  <CardTitle className="text-lg text-gray-800 group-hover:text-indigo-700 transition-colors">
-                    {category}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {skillList.map((skill, idx) => (
-                      <Badge key={idx} className="bg-gradient-to-r from-slate-800 to-slate-900 text-white hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Passionate about creating exceptional digital experiences with modern technologies
+            </p>
+          </div>
+          
+          <div className="space-y-12">
+            {skillCategories.map((category, categoryIndex) => (
+              <div key={categoryIndex} className="animate-fade-in">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center relative">
+                  <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    {category.category}
+                  </span>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                </h3>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div 
+                      key={skillIndex}
+                      className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-white/30 overflow-hidden"
+                    >
+                      {/* Background gradient effect */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                            {skill.icon}
+                          </span>
+                          <div className={`px-3 py-1 bg-gradient-to-r ${skill.color} text-white text-xs font-bold rounded-full shadow-lg`}>
+                            {skill.level}%
+                          </div>
+                        </div>
+                        
+                        <h4 className="font-semibold text-gray-800 mb-3 group-hover:text-indigo-700 transition-colors">
+                          {skill.name}
+                        </h4>
+                        
+                        {/* Animated progress bar */}
+                        <div className="relative">
+                          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div 
+                              className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out group-hover:animate-pulse shadow-lg`}
+                              style={{ width: `${skill.level}%` }}
+                            ></div>
+                          </div>
+                          
+                          {/* Glowing effect */}
+                          <div 
+                            className={`absolute top-0 h-2 bg-gradient-to-r ${skill.color} rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-sm`}
+                            style={{ width: `${skill.level}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      {/* Floating particles effect */}
+                      <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping"></div>
+                      <div className="absolute bottom-6 left-8 w-1 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping delay-100"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
+          </div>
+          
+          {/* Additional Tech Stack Visual */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full px-8 py-4 border border-indigo-100 shadow-lg">
+              <span className="text-gray-600 font-medium">Always learning:</span>
+              <div className="flex space-x-3">
+                <span className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-sm rounded-full shadow-md animate-bounce">Next.js</span>
+                <span className="px-3 py-1 bg-gradient-to-r from-violet-500 to-violet-600 text-white text-sm rounded-full shadow-md animate-bounce delay-100">Vue.js</span>
+                <span className="px-3 py-1 bg-gradient-to-r from-rose-500 to-rose-600 text-white text-sm rounded-full shadow-md animate-bounce delay-200">Docker</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
